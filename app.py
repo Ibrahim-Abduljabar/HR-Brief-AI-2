@@ -18,7 +18,7 @@ def summarize_text(text):
 
     system_msg = "Summarize the following text in English only."
 
-    url = "https://groq.com"
+    url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json"
@@ -92,10 +92,7 @@ for i, report in enumerate(st.session_state["reports"]):
 
     st.write("---")
 
-
-
 if st.button("Summarize Another Report"):
     st.session_state["reports"].append({"uploaded": False})
-
 
 st.write("### If you want to print the summary as a PDF, press Ctrl + P (or Cmd + P on Mac)")
