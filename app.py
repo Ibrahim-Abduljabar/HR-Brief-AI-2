@@ -16,10 +16,9 @@ def detect_language(text):
 def summarize_text(text):
     lang = detect_language(text)
 
-    # تعديل منطق الإيعاز ليقوم بالتلخيص باللغة الإنجليزية دائماً بما أن واجهة الموقع أصبحت إنجليزية
     system_msg = "Summarize the following text in English only."
 
-    url = "https://api.groq.com/openai/v1/chat/completions"
+    url = "https://groq.com"
     headers = {
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json"
@@ -28,7 +27,7 @@ def summarize_text(text):
     payload = {
         "model": "openai/gpt-oss-120b",
         "messages": [
-            {"role": "system", "content": system_prompt},
+            {"role": "system", "content": system_msg},
             {"role": "user", "content": text}
         ]
     }
